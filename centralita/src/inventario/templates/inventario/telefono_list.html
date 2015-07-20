@@ -1,9 +1,13 @@
 {% extends "base.html" %}
-<h1>Listado de teléfonos </h1>
 {% block container %}
+    <h1>Listado de teléfonos </h1>
 	<ul>
 		{% for telefono in object_list %}
-		<li>{{telefono.numero}}  {% if telefono.es_primario %})(*) {% else %} => {{telefono.primario|default:""}} {% endif %}</li>
+		<li>{% if telefono.es_primario %}
+			<a href="{% url "numero-primario-list" telefono.numero %}">{{telefono.numero}}</a>{% else %} {{telefono.numero}} => {{telefono.primario|default:"Telefono suelto"}} {% endif %}</li>
 		{% endfor %}
 	</ul>
+    
+    <h1>Teléfonos Virtuales</h1>
+    <p><a href="{% url "virtual-list" %}">Ir al listado</a></p>
 {% endblock container %}

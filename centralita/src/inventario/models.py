@@ -6,6 +6,11 @@ from django.db import models
 from django.core.exceptions import ValidationError
 
 class Operadora(models.Model):
+    """
+    Operadores telefónicos. De momento guardamos
+    únicamente el nombre
+    """
+    
     nombre = models.CharField(max_length=10)
 
     def __unicode__(self):
@@ -42,6 +47,9 @@ class Telefono(models.Model):
             raise ValidationError(u'Un número no puede ser primario y a la vez estar asociado a un primario')
     
 class Virtual(models.Model):
+    """
+    Definición de un teléfono virtual.
+    """
     numero = models.CharField(max_length=9, unique=True,
                               help_text=u'Teléfono, sin espacios, sólo números')
     descripcion = models.CharField(max_length=100, blank=True) 
@@ -50,11 +58,19 @@ class Virtual(models.Model):
     def __unicode__(self):
         return self.numero
 
+
+    def saltos(self):
+        return self.salto_set.all().order_by('orden')
+
     class Meta:
         verbose_name = u'Teléfono virtual'
         verbose_name_plural = u'Teléfonos virtuales'
 
 class Salto(models.Model):
+    """
+    Líneas de salto pertenecientes a un teléfono
+    virtual
+    """
     virtual = models.ForeignKey(Virtual)
     orden = models.IntegerField(default=0)
     telefono = models.ForeignKey(Telefono,

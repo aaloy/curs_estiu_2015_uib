@@ -16,8 +16,10 @@ Including another URLconf
 from django.conf.urls import include, url
 from django.contrib import admin
 from inventario import urls as inventario_urls
+from django.views.generic import RedirectView
 
 urlpatterns = [
+    url(r'^$', RedirectView.as_view(permanent=False, pattern_name='telefono-list')), 
     url(r'^inventario/', include(inventario_urls)),
     url(r'^admin/', include(admin.site.urls)),
 ]
