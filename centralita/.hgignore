@@ -1,0 +1,47 @@
+#use glob syntax.
+syntax: glob
+
+properties.py
+*.pyc
+*~
+*.swp
+src/media/cache/*
+src/media/private/*
+*.geany
+
+#Ninja-IDE
+.*\.nja
+
+#Eclipse
+.project
+.settings/*
+.pydevproject
+.settings/*
+
+#Netbeans
+nbproject/*
+app.ini
+*.log
+
+
+#PyCharm
+.idea
+
+#Tests
+db.sqlite
+.coverage
+
+syntax: regexp
+.*thumb\.[jpg|png|gif]
+
+#Logs
+^logs/*
+
+#Tmp
+hg stmp/*
+
+#pyenv
+.python-version
+
+# sass
+.sass-cache

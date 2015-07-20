@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+<h1>Listado de teléfonos </h1>
+{% block container %}
+	<ul>
+		{% for telefono in object_list %}
+		<li>{{telefono.numero}}  {% if telefono.es_primario %})(*) {% else %} => {{telefono.primario|default:""}} {% endif %}</li>
+		{% endfor %}
+	</ul>
+{% endblock container %}

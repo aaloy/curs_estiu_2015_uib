@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width">
+		<title>Inventario de teléfonos virtuales</title>
+	</head>
+	<body>
+		<h1>Listado de teléfonos Virtuales </h1>
+	<ul>
+		{% for telefono in object_list %}
+		<li>{{telefono.numero}}</li>
+		{% endfor %}
+	</ul>
+	</body>
+</html>
