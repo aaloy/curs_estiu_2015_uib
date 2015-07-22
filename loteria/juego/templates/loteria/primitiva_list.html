@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width">
+		<title>Sus números de la suerte</title>
+	</head>
+	<body>
+	{% if error %}
+		<p>{{error}}</p>
+		<a href="{% url 'loteria-primitiva' %}">Pulse aquí</a>
+	{% else %}
+		<h1>Sus {{generados}} numeros</h1>
+		{% for num in numeros %}
+			{{num}}<br/>
+		{% endfor %}
+		<a href="{% url 'loteria-primitiva' %}?numero={{generados}}">Nuevos números</a>
+	{% endif %}
+	</body>
+</html>
