@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width">
+		<title>Formulario</title>
+	</head>
+	<body>
+		<form action="." method="POST" accept-charset="utf-8">
+			{% csrf_token %} 
+			<table>	
+				{{form}}
+			</table>
+			<p><input type="submit" value="Continue →"></p>
+		</form>
+	</body>
+</html>
