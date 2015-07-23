@@ -20,6 +20,6 @@ class DatosFormView(FormView):
 
 class DatosMFormView(CreateView):
     model = Apuesta
-    fields = ('nombre', 'apuestas', 'fecha_juego')
+    fields = ('nombre', 'juego', 'apuestas', 'fecha_juego')
     success_url = reverse_lazy('paypay-gracias')
     template_name = 'paypay/datos_form.html'
